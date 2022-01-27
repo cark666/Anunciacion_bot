@@ -36,8 +36,8 @@ const bot = new TelegramBot(token, {polling: true});
 if(result.length > 0){
   bot.sendMessage(-617448606, "Ya estan las notas, SUERTE: " + result[0]);
 
-}
-
+  process.exit();
+}else{ process.exit();}
 
 
 
