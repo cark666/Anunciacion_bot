@@ -1,0 +1,15 @@
+{
+  "name": "anunciacion",
+  "version": "1.0.0",
+  "description": "Bot de telegram sobre notificacion de resultados en NodeJS",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start":"node index.js"
+  },
+  "author": "CGM",
+  "license": "MIT",
+  "dependencies": {
+    "node-telegram-bot-api": "^0.56.0"
+  }
+}
