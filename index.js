@@ -14,7 +14,7 @@ bot.onText(/^\/start/, function(msg){
     // msg.from.username se encarga de recoger el @alias del usuario.
     var username = msg.from.username;
     // Enviamos un mensaje indicando el id del chat, y concatenamos el nombre del usuario con nuestro saludo
-    bot.sendMessage(chatId, "Hola, " + username + " Mi nombre es Anunciacion y doy noticias");
+    bot.sendMessage(chatId, "Hola, " + username + " Estoy Activo");
   });
 
   //Declaramos la funcion indicando que el evento esperado sera un "message"
