@@ -1,18 +1,37 @@
 const browserObject = require('./browser');
 const scraperController = require('./pageController');
-var http = require("http");
-
-//Importando la libreria node-telegram-bot-api 
-const TelegramBot = require('node-telegram-bot-api');
-// Creando nuestra variable que almacenara nuestro token para autenticarnos con el bot creado con BotFather
-const token = '5263035686:AAFS7oT6n4o8NtwiqQwG78VocD07X1cpKEQ';
-// A continuacion, creamos nuestro bot y configuramos el parametro polling igualandolo a True, Con esto logramos que el bot esté en constante proceso de escucha y procesamiento de datos respecto al token de la API de Telegram.
-const bot = new TelegramBot(token, {polling: true});
-// A partir de estas tres líneas de código, ya podríamos empezar a crear comandos y eventos para darle funcionalidad a nuestro bot.
-//Declaramos la funcion
+var http = require("https");
 
 
+function sendNotification(mensaje){
+  return new Promise((resolve, reject) => {
+  var bot_token = '5263035686:AAFS7oT6n4o8NtwiqQwG78VocD07X1cpKEQ'
+ var bot_chatID = '-617448606'
+  var  msg = mensaje
+ var send_text = 'https://api.telegram.org/bot' + bot_token + '/sendMessage?chat_id=' + bot_chatID + '&parse_mode=Markdown&text=' + msg
+ http.get(send_text, (resp) => {
+  let data = '';
 
+  // Un fragmento de datos ha sido recibido.
+  resp.on('data', (chunk) => {
+    data += chunk;
+  });
+
+  // Toda la respuesta ha sido recibida. Imprimir el resultado.
+  resp.on('end', () => {
+    console.log(JSON.parse(data));
+    resolve(data)
+  });
+
+}).on("error", (err) => {
+  console.log("Error: " + err.message);
+  reject(err);
+})
+
+  });
+
+
+}
 
 function enviarMensaje(){
 
@@ -32,15 +51,32 @@ scrap.then(
 //Declaramos la funcion
 if(result.length > 0){
 
-  console.log("SI")
-  bot.sendMessage(-617448606, "Ya estan las notas: " + result[0]);
-  process.exit();
+  console.log('SI')
+var notiification = sendNotification('Ya estan las notas: ' + result[0]);
+  
+notiification.then(
+  function(result) {  process.exit(); },
+  function(error) { console.log(error) 
+    process.exit();}
+
+)
+
 
  
 }else{
-console.log("NO")
-  bot.sendMessage(-617448606, "Sigue rascando");
-  process.exit();
+console.log('NO')
+var notification1 = sendNotification( 'Sigue rascando');
+
+notification1.then(
+  function(result) {   process.exit();},
+  function(error) { console.log(error)
+  
+    process.exit();
+  }
+
+)
+
+
 }
 
 
@@ -51,32 +87,12 @@ console.log("NO")
 
 }
 
-enviarMensaje();
+ enviarMensaje();
+
+
+
 // setInterval(enviarMensaje,1500000);
 
-// bot.onText(/^\/start/, function(msg){
-//     // Imprimimos en consola el mensaje recibido.
-//     console.log(msg);
-//     // msg.chat.id se encarga de recoger el id del chat donde se está realizando la petición.
-//     var chatId = msg.chat.id;
-//     // msg.from.username se encarga de recoger el @alias del usuario.
-//     var username = msg.from.username;
-//     // Enviamos un mensaje indicando el id del chat, y concatenamos el nombre del usuario con nuestro saludo
-//     bot.sendMessage(chatId, "Hola, " + username + " Estoy Activo");
-//   });
-
-//   //Declaramos la funcion indicando que el evento esperado sera un "message"
-// bot.on('message', function(msg){
-//     console.log(msg);
-//     // msg.chat.id se encarga de recoger el id del chat donde se está realizando la petición.
-//     var chatId = msg.chat.id;
-//     // Enviamos nuestro mensaje indicando el id del chat. 
-
-
-  
-
-
-// });
 
 
 
