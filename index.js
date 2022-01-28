@@ -25,19 +25,22 @@ var scrap =  scraperController(browserInstance)
 scrap.then(
     function(result) { 
 
-      http.get("http://anunciacion.herokuapp.com");
+
+      
 
 // A partir de estas tres líneas de código, ya podríamos empezar a crear comandos y eventos para darle funcionalidad a nuestro bot.
 //Declaramos la funcion
 if(result.length > 0){
 
-
+  console.log("SI")
   bot.sendMessage(-617448606, "Ya estan las notas: " + result[0]);
+  process.exit();
 
  
 }else{
-
+console.log("NO")
   bot.sendMessage(-617448606, "Sigue rascando");
+  process.exit();
 }
 
 
@@ -47,31 +50,33 @@ if(result.length > 0){
   );
 
 }
-setInterval(enviarMensaje,1500000);
 
-bot.onText(/^\/start/, function(msg){
-    // Imprimimos en consola el mensaje recibido.
-    console.log(msg);
-    // msg.chat.id se encarga de recoger el id del chat donde se está realizando la petición.
-    var chatId = msg.chat.id;
-    // msg.from.username se encarga de recoger el @alias del usuario.
-    var username = msg.from.username;
-    // Enviamos un mensaje indicando el id del chat, y concatenamos el nombre del usuario con nuestro saludo
-    bot.sendMessage(chatId, "Hola, " + username + " Estoy Activo");
-  });
+enviarMensaje();
+// setInterval(enviarMensaje,1500000);
 
-  //Declaramos la funcion indicando que el evento esperado sera un "message"
-bot.on('message', function(msg){
-    console.log(msg);
-    // msg.chat.id se encarga de recoger el id del chat donde se está realizando la petición.
-    var chatId = msg.chat.id;
-    // Enviamos nuestro mensaje indicando el id del chat. 
+// bot.onText(/^\/start/, function(msg){
+//     // Imprimimos en consola el mensaje recibido.
+//     console.log(msg);
+//     // msg.chat.id se encarga de recoger el id del chat donde se está realizando la petición.
+//     var chatId = msg.chat.id;
+//     // msg.from.username se encarga de recoger el @alias del usuario.
+//     var username = msg.from.username;
+//     // Enviamos un mensaje indicando el id del chat, y concatenamos el nombre del usuario con nuestro saludo
+//     bot.sendMessage(chatId, "Hola, " + username + " Estoy Activo");
+//   });
+
+//   //Declaramos la funcion indicando que el evento esperado sera un "message"
+// bot.on('message', function(msg){
+//     console.log(msg);
+//     // msg.chat.id se encarga de recoger el id del chat donde se está realizando la petición.
+//     var chatId = msg.chat.id;
+//     // Enviamos nuestro mensaje indicando el id del chat. 
 
 
   
 
 
-});
+// });
 
 
 
