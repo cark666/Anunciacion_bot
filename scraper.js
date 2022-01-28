@@ -1,11 +1,11 @@
-// //Importando la libreria node-telegram-bot-api 
-// const TelegramBot = require('node-telegram-bot-api');
-// // Creando nuestra variable que almacenara nuestro token para autenticarnos con el bot creado con BotFather
-// const token = '5119966296:AAHxpGhzp5NJaZNZ9LL8NHkv5sOhB1yEPA8';
-// // A continuacion, creamos nuestro bot y configuramos el parametro polling igualandolo a True, Con esto logramos que el bot esté en constante proceso de escucha y procesamiento de datos respecto al token de la API de Telegram.
-// const bot = new TelegramBot(token, {polling: true});
-// // A partir de estas tres líneas de código, ya podríamos empezar a crear comandos y eventos para darle funcionalidad a nuestro bot.
-// //Declaramos la funcion
+//Importando la libreria node-telegram-bot-api 
+const TelegramBot = require('node-telegram-bot-api');
+// Creando nuestra variable que almacenara nuestro token para autenticarnos con el bot creado con BotFather
+const token = '5119966296:AAHxpGhzp5NJaZNZ9LL8NHkv5sOhB1yEPA8';
+// A continuacion, creamos nuestro bot y configuramos el parametro polling igualandolo a True, Con esto logramos que el bot esté en constante proceso de escucha y procesamiento de datos respecto al token de la API de Telegram.
+const bot = new TelegramBot(token, {polling: true});
+// A partir de estas tres líneas de código, ya podríamos empezar a crear comandos y eventos para darle funcionalidad a nuestro bot.
+//Declaramos la funcion
 
 
 
@@ -25,12 +25,7 @@ var scrap =  scraperController(browserInstance)
 scrap.then(
     function(result) { 
 
-//Importando la libreria node-telegram-bot-api 
-const TelegramBot = require('node-telegram-bot-api');
-// Creando nuestra variable que almacenara nuestro token para autenticarnos con el bot creado con BotFather
-const token = '5119966296:AAHxpGhzp5NJaZNZ9LL8NHkv5sOhB1yEPA8';
-// A continuacion, creamos nuestro bot y configuramos el parametro polling igualandolo a True, Con esto logramos que el bot esté en constante proceso de escucha y procesamiento de datos respecto al token de la API de Telegram.
-const bot = new TelegramBot(token, {polling: true});
+
 // A partir de estas tres líneas de código, ya podríamos empezar a crear comandos y eventos para darle funcionalidad a nuestro bot.
 //Declaramos la funcion
 if(result.length > 0){
