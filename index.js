@@ -64,17 +64,9 @@ notiification.then(
 
  
 }else{
-console.log('NO')
-var notification1 = sendNotification( 'Sigue rascando');
+console.log('Sigue rascando')
+process.exit();
 
-notification1.then(
-  function(result) {   process.exit();},
-  function(error) { console.log(error)
-  
-    process.exit();
-  }
-
-)
 
 
 }
