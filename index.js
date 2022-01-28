@@ -25,12 +25,12 @@ var scrap =  scraperController(browserInstance)
 scrap.then(
     function(result) { 
 
+      http.get("http://anunciacion.herokuapp.com");
 
 // A partir de estas tres líneas de código, ya podríamos empezar a crear comandos y eventos para darle funcionalidad a nuestro bot.
 //Declaramos la funcion
 if(result.length > 0){
 
-  http.get("http://anunciacion.herokuapp.com");
 
   bot.sendMessage(-617448606, "Ya estan las notas: " + result[0]);
 
