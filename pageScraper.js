@@ -1,5 +1,5 @@
 const scraperObject = {
-    url: 'https://www.culturaydeporte.gob.es/servicios-al-ciudadano/catalogo/general/20/206519/ficha/206519-2016.html',
+    url: 'https://www.culturaydeporte.gob.es/servicios-al-ciudadano/catalogo/general/20/206519/ficha/206519-2018-y-2019.html',
     async scraper(browser){
         let page = await browser.newPage();
         console.log(`Navigating to ${this.url}...`);
