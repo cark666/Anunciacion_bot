@@ -9,7 +9,7 @@ async function readFile() {
 
     try {
         var data = fs.readFileSync(path, 'utf8');
-        console.log(data);
+
         return data;
     } catch (e) {
         console.log('Error:', e.stack);

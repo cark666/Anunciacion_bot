@@ -62,6 +62,8 @@ function enviarMensaje() {
                     });
 
                     if (filter.length > 0) {
+
+                        console.log(filter)
                         var notiification = sendNotification('Ya estan las notas: ' + filter[0]);
 
                         notiification.then(
@@ -73,7 +75,7 @@ function enviarMensaje() {
 
                         )
                     } else {
-                        console.log('Sigue rascando')
+                        console.log('Sigue rascando 1')
                         process.exit();
 
 
