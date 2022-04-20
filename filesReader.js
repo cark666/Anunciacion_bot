@@ -12,7 +12,9 @@ async function readFile() {
 
         return data;
     } catch (e) {
-        console.log('Error:', e.stack);
+        console.log('Error:Se lanza de nuevo');
+        var data = fs.readFileSync(path, 'utf8');
+        return data;
     }
 
 

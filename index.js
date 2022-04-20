@@ -56,7 +56,7 @@ function enviarMensaje() {
 
                 files.readFile().then(function(response) {
                     var text = response
-                    console.log('SI')
+               
                     var filter = result.filter(function(element) {
                         return !text.includes(element)
                     });
